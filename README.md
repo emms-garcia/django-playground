@@ -14,7 +14,7 @@ And then:
 
 `make runserver`
 
-Boom! That's it. Navigate to http://localhost:8000/ (or your `docker-machine` ip if you happen to use it), you should be able to see the default page for a new Django project with the message:
+Boom! That's it. Navigate to [http://localhost:8000/](http://localhost:8000/) (or your `docker-machine` ip if you happen to use it), you should be able to see the default page for a new Django project with the message:
 
 ```
 It worked!
