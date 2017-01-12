@@ -2,6 +2,8 @@
 
 Playing with Django.
 
+## Setup
+
 To initialize the development environment, Docker is needed. You can follow the [Docker documentation](https://www.docker.com/products/docker) to get started.
 
 With docker installed, `cd` into the repo and run:
@@ -19,6 +21,8 @@ It worked!
 Congratulations on your first Django-powered page.
 ```
 
+## Gotchas
+
 To run Django commands like `startapp`, you can either:
 
 * Run `docker-compose run web python manage.py startapp appname`.
@@ -26,3 +30,6 @@ To run Django commands like `startapp`, you can either:
 * Add your own target to the Makefile to do that for you.
 
 To stop the server run `make stopserver`.
+
+If a new library is required, besides updating `requirements.txt`, you need to run:
+`make build`.
