@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 RUN_DB = docker-compose run db
 RUN_WEB = docker-compose run web
 
@@ -41,8 +43,8 @@ stopserver:
 	@docker-compose stop
 
 teardown:
-	@docker ps -a -q | xargs docker stop
-	@docker ps -a -q | xargs docker rm
+	@docker ps -a -q | xargs --no-run-if-empty docker stop
+	@docker ps -a -q | xargs --no-run-if-empty docker rm
 
 test:
 	@${RUN_WEB} python manage.py test
