@@ -14,7 +14,7 @@ default:
 	@echo '- make stopserver: Stops the container, which stops the server.'
 
 build:
-	docker-compose build
+	@docker-compose build
 
 makemigrations:
 	@${RUN_WEB} python manage.py makemigrations
@@ -26,14 +26,23 @@ psql:
 	@${RUN_DB} psql -h db -U postgres
 
 runserver:
-	docker-compose up -d
+	@docker-compose up -d
 
 setup:
 	@docker-compose build
+	@${RUN_WEB} python manage.py migrate &>/dev/null; true
+	@sleep 10s
 	@${RUN_WEB} python manage.py migrate
 
 startapp:
 	@${RUN_WEB} python manage.py startapp ${appname}
 
 stopserver:
-	docker-compose stop
+	@docker-compose stop
+
+teardown:
+	@docker ps -a -q | xargs docker stop
+	@docker ps -a -q | xargs docker rm
+
+test:
+	@${RUN_WEB} python manage.py test
