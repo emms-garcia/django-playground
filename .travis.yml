@@ -5,14 +5,11 @@ python:
 
 services: postgresql
 
-env:
-  - DJANGO_URL=postgres://postgres:@localhost:5432/travisci
-  - DJANGO_VERSION=1.10.5
-
 before_install:
   - export DJANGO_SETTINGS_MODULE=quickstart.settings
+  - export DJANGO_URL=postgres://postgres:@localhost:5432/travisci
+  - export DJANGO_VERSION=1.10.5
   - export PYTHONPATH=$HOME/builds/synnick/django-playground
-  - export PIP_USE_MIRRORS=true
 
 install:
   - pip install -r requirements.txt
