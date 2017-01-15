@@ -7,14 +7,11 @@ services: postgresql
 
 before_install:
   - export DJANGO_SETTINGS_MODULE=quickstart.settings
-  - export DJANGO_URL=postgres://postgres:@localhost:5432/travisci
-  - export DJANGO_VERSION=1.10.5
+  - export DJANGO_URL=postgres://postgres:@localhost/travisci
   - export PYTHONPATH=$HOME/builds/synnick/django-playground
 
 install:
   - pip install -r requirements.txt
-  - pip install -q Django==$DJANGO_VERSION
-  - pip install psycopg2 --quiet
 
 before_script:
   - psql -c 'create database travisci;' -U postgres
