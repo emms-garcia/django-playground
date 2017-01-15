@@ -21,6 +21,13 @@ It worked!
 Congratulations on your first Django-powered page.
 ```
 
+## Testing
+
+[![Build Status](https://travis-ci.org/synnick/django-playground.svg?branch=master)](https://travis-ci.org/synnick/django-playground)
+
+This project includes a `.travis.yml` configuration file to run tests on Travis CI,
+including setting up a DB and running migrations.
+
 ## Gotchas
 
 To run Django commands like `startapp`, you can either:
