@@ -43,8 +43,8 @@ stopserver:
 	@docker-compose stop
 
 teardown:
-	@docker ps -a -q | xargs --no-run-if-empty docker stop
-	@docker ps -a -q | xargs --no-run-if-empty docker rm
+	@docker ps -a -q | xargs docker stop
+	@docker ps -a -q | xargs docker rm
 
 test:
 	@${RUN_WEB} python manage.py test

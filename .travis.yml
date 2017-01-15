@@ -6,6 +6,7 @@ python:
 services: postgresql
 
 env:
+  - DJANGO_URL=postgres://postgres:@localhost:5432/travisci
   - DJANGO_VERSION=1.10.5
 
 before_install:
